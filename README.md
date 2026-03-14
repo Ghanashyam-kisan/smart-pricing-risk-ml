@@ -1,198 +1,175 @@
-Smart Pricing & Risk Assessment using Machine Learning
-Overview
+# Smart Pricing & Risk Assessment using Machine Learning
 
-This project implements an end-to-end machine learning pipeline for risk-based insurance pricing using customer financial and behavioral data.
+## Overview
+This project implements an end-to-end machine learning pipeline for **risk-based insurance pricing** using customer financial and behavioral data.
 
-The system combines unsupervised learning (K-Means clustering) for customer risk segmentation with supervised regression models (Random Forest & XGBoost) to predict optimal pricing.
+The system combines **unsupervised learning (K-Means clustering)** for customer risk segmentation with **supervised regression models (Random Forest & XGBoost)** to predict optimal pricing.
 
-An interactive dashboard built with Streamlit allows users to input customer details and obtain:
+An interactive **Streamlit dashboard** allows users to input customer details and obtain:
 
-predicted insurance price
+- Predicted insurance price
+- Risk category
+- Model explanation
+- Prediction analytics
 
-risk category
+This project demonstrates how **hybrid ML systems can support pricing decisions in financial and insurance domains**.
 
-model explanation
+---
 
-analytics dashboard
+## Key Features
 
-This project demonstrates how hybrid ML systems can support pricing decisions in financial and insurance domains.
+- End-to-end ML pipeline
+- Synthetic dataset generation
+- Customer risk segmentation using **K-Means clustering**
+- Price prediction using **Random Forest & XGBoost**
+- **Hyperparameter tuning** with GridSearchCV
+- **Model explainability using SHAP**
+- Interactive **Streamlit dashboard**
+- Prediction history tracking
+- Price distribution analytics
+- Feature importance visualization
 
-Key Features
+---
 
-End-to-end ML pipeline
+## Technologies Used
 
-Synthetic dataset generation
+- Python
+- Scikit-learn
+- XGBoost
+- Pandas
+- NumPy
+- Matplotlib
+- SHAP (Explainable AI)
+- Streamlit
 
-Customer risk segmentation using K-Means clustering
+---
 
-Price prediction using Random Forest & XGBoost
+## Dataset
 
-Hyperparameter tuning with GridSearchCV
+The project uses a **synthetic but statistically realistic dataset** designed to simulate insurance pricing scenarios.
 
-Model explainability using SHAP
+### Features
+- Age
+- Income
+- Credit Score
+- Claim History
+- Vehicle Value
 
-Interactive Streamlit dashboard
+### Target
+- Risk-adjusted insurance price
 
-Prediction history tracking
+Synthetic data generation ensures **reproducibility while preserving real-world patterns**.
 
-Price distribution analytics
+---
 
-Feature importance visualization
-
-Technologies Used
-
-Python
-
-Scikit-learn
-
-XGBoost
-
-Pandas
-
-NumPy
-
-Matplotlib
-
-SHAP (Explainable AI)
-
-Streamlit
-
-Dataset
-
-The project uses a synthetic but statistically realistic dataset designed to simulate insurance pricing scenarios.
-
-Features include:
-
-Age
-
-Income
-
-Credit Score
-
-Claim History
-
-Vehicle Value
-
-Target variable:
-
-Risk-adjusted insurance price
-
-Synthetic data generation ensures reproducibility while preserving real-world patterns.
-
-Project Architecture
+## Project Architecture
 smart-pricing-risk-ml
 │
 ├── data/
-│   ├── generate_dataset.py
-│   └── pricing_data.csv
+│ ├── generate_dataset.py
+│ └── pricing_data.csv
 │
 ├── notebooks/
-│   └── EDA.ipynb
+│ └── EDA.ipynb
 │
 ├── src/
-│   ├── clustering.py
-│   ├── data_preprocessing.py
-│   ├── evaluation.py
-│   ├── models.py
-│   └── tuning.py
+│ ├── clustering.py
+│ ├── data_preprocessing.py
+│ ├── evaluation.py
+│ ├── models.py
+│ └── tuning.py
 │
 ├── artifacts/
-│   ├── best_model.pkl
-│   ├── scaler.pkl
-│   └── clustering_model.pkl
+│ ├── best_model.pkl
+│ ├── scaler.pkl
+│ └── clustering_model.pkl
 │
 ├── app/
-│   └── streamlit_app.py
+│ └── streamlit_app.py
 │
 ├── main.py
 ├── requirements.txt
 └── README.md
-Machine Learning Pipeline
 
-Data Generation
 
-Synthetic dataset simulating insurance customers
+---
 
-Data Preprocessing
+## Machine Learning Pipeline
 
-Feature scaling
+1. **Data Generation**
+   - Synthetic dataset simulating insurance customers
 
-Data preparation
+2. **Data Preprocessing**
+   - Feature scaling and preparation
 
-Risk Segmentation
+3. **Risk Segmentation**
+   - K-Means clustering groups customers into risk segments
 
-K-Means clustering groups customers into risk segments
+4. **Model Training**
+   - Random Forest Regressor
+   - XGBoost Regressor
 
-Model Training
+5. **Hyperparameter Tuning**
+   - GridSearchCV optimization
 
-Random Forest Regressor
+6. **Model Evaluation**
+   - MAE
+   - RMSE
+   - R² score
 
-XGBoost Regressor
+7. **Explainability**
+   - SHAP analysis for prediction interpretation
 
-Hyperparameter Tuning
+---
 
-GridSearchCV optimization
-
-Model Evaluation
-
-MAE
-
-RMSE
-
-R² score
-
-Explainability
-
-SHAP analysis for prediction interpretation
-
-Dashboard (Streamlit)
+## Streamlit Dashboard
 
 The interactive dashboard allows users to:
 
-input customer details
+- Input customer details
+- Predict insurance pricing
+- View risk classification
+- See SHAP-based explanation
+- Track prediction history
+- Analyze price distribution
 
-predict insurance pricing
+### Workflow
 
-view risk classification
+User Input  
+↓  
+ML Model Prediction  
+↓  
+Risk Classification  
+↓  
+SHAP Explanation  
+↓  
+Analytics Dashboard  
 
-see SHAP-based explanation
+---
 
-track prediction history
-
-analyze price distribution
-
-Example workflow:
-
-User Input
-   ↓
-ML Model Prediction
-   ↓
-Risk Classification
-   ↓
-SHAP Explanation
-   ↓
-Analytics Dashboard
-Installation
+## Installation
 
 Clone the repository:
 
+```bash
 git clone https://github.com/Ghanashyam-kisan/smart-pricing-risk-ml.git
 cd smart-pricing-risk-ml
 
 Install dependencies:
-
 pip install -r requirements.txt
+
 Run the ML Pipeline
 
 Train models and generate artifacts:
-
 python main.py
+
 Run the Dashboard
 streamlit run app/streamlit_app.py
 
-Then open:
+Open in browser:
 
 http://localhost:8501
+
 Example Output
 
 The system produces:
