@@ -63,33 +63,48 @@ Synthetic data generation ensures **reproducibility while preserving real-world 
 ---
 
 ## Project Architecture
+
 smart-pricing-risk-ml
 │
 ├── data/
-│ ├── generate_dataset.py
-│ └── pricing_data.csv
+│   ├── generate_dataset.py
+│   └── pricing_data.csv
 │
 ├── notebooks/
-│ └── EDA.ipynb
+│   └── EDA.ipynb
 │
 ├── src/
-│ ├── clustering.py
-│ ├── data_preprocessing.py
-│ ├── evaluation.py
-│ ├── models.py
-│ └── tuning.py
+│   ├── clustering.py
+│   ├── data_preprocessing.py
+│   ├── evaluation.py
+│   ├── models.py
+│   └── tuning.py
 │
 ├── artifacts/
-│ ├── best_model.pkl
-│ ├── scaler.pkl
-│ └── clustering_model.pkl
+│   ├── best_model.pkl
+│   ├── scaler.pkl
+│   └── clustering_model.pkl
 │
 ├── app/
-│ └── streamlit_app.py
+│   └── streamlit_app.py
 │
 ├── main.py
 ├── requirements.txt
 └── README.md
+
+
+
+data/ → Dataset generation and storage
+
+notebooks/ → Exploratory Data Analysis (EDA)
+
+src/ → Core ML pipeline modules
+
+artifacts/ → Saved trained models and preprocessing objects
+
+app/ → Streamlit web interface for pricing prediction
+
+main.py → Executes the complete ML pipeline
 
 
 ---
