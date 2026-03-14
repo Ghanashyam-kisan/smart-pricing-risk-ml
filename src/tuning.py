@@ -1,28 +1,33 @@
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import RandomizedSearchCV
 from xgboost import XGBRegressor
 
+
 def tune_xgboost(X_train, y_train):
-    param_grid = {
-        "n_estimators": [300, 500],
-        "max_depth": [4, 6],
-        "learning_rate": [0.03, 0.05],
-        "subsample": [0.8],
-        "colsample_bytree": [0.8]
+
+    param_dist = {
+
+        "n_estimators": [200, 300, 400, 500],
+        "max_depth": [4, 5, 6, 7],
+        "learning_rate": [0.01, 0.03, 0.05],
+        "subsample": [0.7, 0.8],
+        "colsample_bytree": [0.7, 0.8]
     }
 
-    xgb = XGBRegressor(
+    model = XGBRegressor(
         objective="reg:squarederror",
-        random_state=42,
-        n_jobs=1          # 🔥 IMPORTANT
+        random_state=42
     )
 
-    grid = GridSearchCV(
-        estimator=xgb,
-        param_grid=param_grid,
+    search = RandomizedSearchCV(
+        model,
+        param_dist,
+        n_iter=20,
         scoring="r2",
         cv=3,
-        n_jobs=1          # 🔥 IMPORTANT (no parallel processes)
+        verbose=1,
+        random_state=42
     )
 
-    grid.fit(X_train, y_train)
-    return grid.best_estimator_, grid.best_params_
+    search.fit(X_train, y_train)
+
+    return search.best_estimator_, search.best_params_
